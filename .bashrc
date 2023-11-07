@@ -1,5 +1,9 @@
 alias cls="clear"
 
+setxkbmap -option caps:escape
+
+
+
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
@@ -121,10 +125,31 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+
+
+
+case $PWD in
+    /mnt/c/Users/*|/mnt/d/*) os_space="$(tput setaf 10)[WIN] $(tput setaf 10)" ;;
+    /mnt/usb/*)        os_space=unknown ;;
+    *)                 os_space="";;
+esac
+
+
+
 # PS1="\[\e[0;36m\][\t]\[\e[0;m\] \[\e[0;32m\]Nchpg\[\e[0;m\]: \[\e[1;35m\]\w\[\e[0;m\] \[\e[1;32m\] \\$\[\e[0;m\] "
 alias cddesk="cd /mnt/c/Users/natha/Desktop"
+alias cdwin="cddesk"
+alias cdlinux="cd"
+
 alias cdc="cd /mnt/c"
 
 
-    PS1='${debian_chroot:+($debian_chroot)}\[\e[0;36m\][\t]\[\e[0;m\] \[\e[0;32m\]Nchpg\[\e[0;m\]: \[\033[01;34m\]\w\[\033[00m\] \[\e[91m\]$(parse_git_branch)\[\e[00m\]$ '
+
+
+
+
+PS1='${debian_chroot:+($debian_chroot)}\[\e[0;36m\][\t]\[\e[0;m\] ${os_space}\[\e[0;32m\]Nchpg\[\e[0;m\]: \[\033[01;34m\]\w\[\033[00m\] \[\e[91m\]$(parse_git_branch)\[\e[00m\]$ '
+
+
 alias Pshort="PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\w\[\033[00m\]\[\e[91m\]$(parse_git_branch)\[\e[00m\] $ '"

@@ -1,5 +1,4 @@
 call plug#begin('~/.vim/plugged') 
-    " Plug 'sheerun/vimrc'
     Plug 'sheerun/vim-polyglot'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'itchyny/lightline.vim'   
@@ -9,11 +8,17 @@ call plug#begin('~/.vim/plugged')
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-commentary'     
     Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-    "Plug 'majutsushi/tagbar'
+    Plug 'majutsushi/tagbar'
+    Plug 'morhetz/gruvbox'
 call plug#end()
 
-"nmap <F9> :TagbarToggle<CR>
-"set g:tagbar_use_universal_ctags = true
+"tagbar
+nmap <F10> :TagbarJumpNext<CR>
+nmap <F9> :TagbarToggle<CR>
+nmap <F8> :TagbarJumpPrev<CR>
+let g:tagbar_map_togglesort = "s"
+let g:tagbar_sort = 0
+
 "disable highlight
 :nohlsearch
 nnoremap <C-e> :nohlsearch<CR>
@@ -30,7 +35,8 @@ set splitright
 set splitbelow
 
 " brackets pairs
-nnoremap <C-q> :RainbowToggle<CR>
+nnoremap <C-b> :RainbowToggle<CR>
+inoremap /* /**/<left><left>
 inoremap " ""<left>
 inoremap ' ''<left>
 inoremap ( ()<left>
@@ -54,7 +60,7 @@ nnoremap <C-d> yyp:-1<CR>
 
 
 " function to rename the variable under the cursor
-nnoremap <C-h> :call Rnvar()<CR>
+nnoremap <C-q> :call Rnvar()<CR>
 function! Rnvar()
   let word_to_replace = expand("<cword>")
   let replacement = input("new name: ")
@@ -84,7 +90,13 @@ let g:lightline = {
 " nerd tree
 nnoremap <C-right> :NERDTreeToggle<CR>
 nnoremap <C-left> :NERDTree<CR>
-
+let NERDTreeQuitOnOpen=1
+"Start NERDTree when Vim starts with a directory argument.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " other command
 set encoding=utf-8
@@ -112,6 +124,10 @@ set softtabstop=4
 set ruler
 set undolevels=1000
 set backspace=indent,eol,start
+set nocompatible
+set tabstop=4
+set showmatch
+set comments=sl:/*,mb:\ *,elx:\ */
 
 "--------------------------------------COC------------------------------------"
 " Use tab for trigger completion with characters ahead and navigate
