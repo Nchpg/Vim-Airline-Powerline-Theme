@@ -1,7 +1,8 @@
 call plug#begin('~/.vim/plugged') 
     Plug 'sheerun/vim-polyglot'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'itchyny/lightline.vim'   
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'vim-airline/vim-airline'
     Plug 'frazrepo/vim-rainbow'
     Plug 'tpope/vim-fugitive'
     Plug 'wakatime/vim-wakatime' 
@@ -11,6 +12,15 @@ call plug#begin('~/.vim/plugged')
     Plug 'majutsushi/tagbar'
     Plug 'morhetz/gruvbox'
 call plug#end()
+
+let g:airline#extensions#tabline#enabled = 1
+" let g:airline_powerline_fonts = 1
+let g:airline_theme='best'
+
+"Tab
+nmap <C-n> :tabnext<CR>
+nmap <S-n> :tab new<CR>
+
 
 "tagbar
 nmap <F10> :TagbarJumpNext<CR>
@@ -69,22 +79,22 @@ endfunction
 
 
 " lightline settings
-set laststatus=2
-set ttimeout ttimeoutlen=50
-if !has('gui_running')
-  set t_Co=256
-endif
-set noshowmode
+" set laststatus=2
+" set ttimeout ttimeoutlen=50
+" if !has('gui_running')
+"   set t_Co=256
+" endif
+" set noshowmode
 
-let g:lightline = {
-      \ 'active': {
-      \ 'left': [ [ 'mode', 'paste'],['gitbranch', 'readonly', 'filename', 'modified'] ],
-      \ 'right': [ [ 'lineinfo' ],[ 'percent' ],[ 'fileformat', 'fileencoding', 'filetype'] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
+" let g:lightline = {
+"       \ 'active': {
+"       \ 'left': [ [ 'mode', 'paste'],['gitbranch', 'readonly', 'filename', 'modified'] ],
+"       \ 'right': [ [ 'lineinfo' ],[ 'percent' ],[ 'fileformat', 'fileencoding', 'filetype'] ]
+"       \ },
+"       \ 'component_function': {
+"       \   'gitbranch': 'FugitiveHead'
+"       \ },
+"       \ }
 
 
 " nerd tree
