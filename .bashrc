@@ -1,9 +1,12 @@
 alias cls="clear"
 
+<<<<<<< HEAD
 setxkbmap -option caps:escape
 
 
 
+=======
+>>>>>>> 9be868f9fee24b918c55e8af6e1a11eed06fc68b
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
