@@ -233,7 +233,19 @@ let g:airline_section_z = " %2l:%-2c "
 let g:airline_section_y = " %3p%% "
 let g:airline_section_c_only_filename = 1
 let g:airline_section_c = '%t'
-let g:airline_section_x = airline#section#create(['ffenc',' | ','filetype'])
+let g:e = airline#parts#ffenc()
+let g:ffenc = split(g:e, '[[]')[0]
+let g:len = strlen(g:ffenc)
+let g:last = g:e[g:len-1] - ']'
+if get(g:, 'len', 0) && get(g:, 'last', 0) 
+    let g:ffenc = g:ffenc." | "
+else
+    let g:ffenc = ""
+endif
+let g:airline_section_warning = airline#section#create(['ycm_warning_count',  'syntastic-warn', 'neomake_warning_count', 'ale_warning_count', 'lsp_warning_count', 'nvimlsp_warning_count', 'languageclient_warning_count', 'coc_warning_count', 'vim9lsp_warning_count'])
+
+let g:airline_section_x = airline#section#create([g:ffenc,'filetype'])
+
 let g:airline#extensions#branch#vcs_checks = []
 let airline#extensions#coc#error_symbol = ' E:'
 let airline#extensions#coc#warning_symbol = ' W:'
