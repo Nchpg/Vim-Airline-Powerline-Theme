@@ -1,6 +1,8 @@
 # config
 
-## Powerline 
+## Airline Powerline theme 
+
+![](airline-powerline-theme.png)
 
 To use powerline theme, you must first have installed [```vim-airline-theme```](https://github.com/vim-airline/vim-airline)
 
