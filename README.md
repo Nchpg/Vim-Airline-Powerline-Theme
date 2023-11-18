@@ -6,7 +6,7 @@
 
 To use powerline theme, you must first have installed [```vim-airline-theme```](https://github.com/vim-airline/vim-airline)
 
-Then copy ```powerline.vim``` in ```~/.vim/plugged/vim-airline-themes/autoload/airline/themes/```
+Then clone the repo and copy ```powerline.vim``` in ```~/.vim/plugged/vim-airline-themes/autoload/airline/themes/```
 ```shell script
 $ cp powerline.vim ~/.vim/plugged/vim-airline-themes/autoload/airline/themes/
 ```
