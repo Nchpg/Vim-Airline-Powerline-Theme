@@ -231,8 +231,7 @@ endif
 let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'keymap', 'capslock', 'xkblayout', 'iminsert'])
 let g:airline_section_z = " %2l:%-2c "
 let g:airline_section_y = " %3p%% "
-let g:airline_section_c_only_filename = 1
-let g:airline_section_c = '%t'
+let g:airline_section_c = '%t%m'
 let g:e = airline#parts#ffenc()
 let g:ffenc = split(g:e, '[[]')[0]
 let g:len = strlen(g:ffenc)
