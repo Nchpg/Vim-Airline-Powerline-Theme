@@ -3,21 +3,30 @@ call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'vim-airline/vim-airline-themes'
     Plug 'vim-airline/vim-airline'
-    Plug 'frazrepo/vim-rainbow'
     Plug 'tpope/vim-fugitive'
     Plug 'wakatime/vim-wakatime' 
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-commentary'     
     Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-    Plug 'majutsushi/tagbar'
     Plug 'morhetz/gruvbox'
+    Plug 'preservim/nerdtree'
 call plug#end()
 
-let g:airline#extensions#tabline#enabled = 1
-" let g:airline_powerline_fonts = 1
-let g:airline_theme='best'
 
-"Tab
+" set laststatus=2
+set ttimeout ttimeoutlen=50
+if !has('gui_running')
+  set t_Co=256
+endif
+set noshowmode
+
+
+let g:airline_theme='powerline'
+let g:airline#extensions#whitespace#enabled = 0
+let g:show_error = 0
+let g:modification_color = 0
+let g:airline_powerline_fonts = 1
+
 nmap <C-n> :tabnext<CR>
 nmap <S-n> :tab new<CR>
 
@@ -77,26 +86,6 @@ function! Rnvar()
   execute '%s/\(\W\)' . word_to_replace . '\(\W\)/\1' . replacement . '\2/gc'
 endfunction
 
-
-" lightline settings
-" set laststatus=2
-" set ttimeout ttimeoutlen=50
-" if !has('gui_running')
-"   set t_Co=256
-" endif
-" set noshowmode
-
-" let g:lightline = {
-"       \ 'active': {
-"       \ 'left': [ [ 'mode', 'paste'],['gitbranch', 'readonly', 'filename', 'modified'] ],
-"       \ 'right': [ [ 'lineinfo' ],[ 'percent' ],[ 'fileformat', 'fileencoding', 'filetype'] ]
-"       \ },
-"       \ 'component_function': {
-"       \   'gitbranch': 'FugitiveHead'
-"       \ },
-"       \ }
-
-
 " nerd tree
 nnoremap <C-right> :NERDTreeToggle<CR>
 nnoremap <C-left> :NERDTree<CR>
@@ -138,6 +127,7 @@ set nocompatible
 set tabstop=4
 set showmatch
 set comments=sl:/*,mb:\ *,elx:\ */
+
 
 "--------------------------------------COC------------------------------------"
 " Use tab for trigger completion with characters ahead and navigate
