@@ -1,15 +1,14 @@
 call plug#begin('~/.vim/plugged') 
+    Plug 'morhetz/gruvbox'
     Plug 'sheerun/vim-polyglot'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'vim-airline/vim-airline'
-    Plug 'tpope/vim-fugitive'
+    Plug 'vim-airline/vim-airline' 
     Plug 'wakatime/vim-wakatime' 
+    Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-commentary'     
-    Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-    Plug 'morhetz/gruvbox'
     Plug 'preservim/nerdtree'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 
@@ -20,23 +19,18 @@ if !has('gui_running')
 endif
 set noshowmode
 
-
+" airline_theme
 let g:airline_theme='powerline'
 let g:airline#extensions#whitespace#enabled = 0
 let g:show_error = 0
 let g:modification_color = 0
 let g:airline_powerline_fonts = 1
 
-nmap <C-n> :tabnext<CR>
-nmap <S-n> :tab new<CR>
+" tab manager
+nmap <S-left> :tabprev<CR>
+nmap <S-right> :tabnext<CR>
+nmap <S-N> :tab new<CR>
 
-
-"tagbar
-nmap <F10> :TagbarJumpNext<CR>
-nmap <F9> :TagbarToggle<CR>
-nmap <F8> :TagbarJumpPrev<CR>
-let g:tagbar_map_togglesort = "s"
-let g:tagbar_sort = 0
 
 "disable highlight
 :nohlsearch
