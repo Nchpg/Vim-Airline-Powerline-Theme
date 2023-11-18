@@ -1,4 +1,4 @@
-# config
+# Config
 
 ## Airline Powerline theme 
 
