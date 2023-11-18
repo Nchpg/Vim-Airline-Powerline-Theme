@@ -13,7 +13,6 @@ $ cp powerline.vim ~/.vim/plugged/vim-airline-themes/autoload/airline/themes/
 Finally add these commands in the ```~/.vimrc```
 ```vim
 let g:airline_theme='powerline'
-let g:airline#extensions#whitespace#enabled = 0
 let g:show_error = 0
 let g:modification_color = 0
 let g:airline_powerline_fonts = 1
