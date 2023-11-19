@@ -37,7 +37,7 @@ let g:airline_powerline_fonts = 1
                                      "0 : don't show code error in the right part of the status bar
 
   let g:modification_color = ?       "1 : when the file has been modified, the file name become red
-                                     "0 : when the file has been modified, the file name does not change color
+                                     "0 : when the file has been modified, the file name doesn't change color
 
   let g:airline_powerline_fonts = ?  "1 : use powerline font (allow the arrow separator)
                                      "0 : disable powerline font (straight separation)
