@@ -2,7 +2,7 @@
 
 ![](airline-powerline-theme.png)
 
-This theme is heavily inspired by [lightine](https://github.com/itchyny/lightline.vim) powerline theme
+This theme is inspired by [lightline](https://github.com/itchyny/lightline.vim) powerline theme
 
 ## Installation
 
