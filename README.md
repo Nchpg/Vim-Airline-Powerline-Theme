@@ -2,24 +2,29 @@
 
 ![](airline-powerline-theme.png)
 
+This theme is heavily inspired by [lightine](https://github.com/itchyny/lightline.vim) powerline theme
+
 ## Installation
 
-To use powerline theme, you must first have installed [```vim-airline-theme```](https://github.com/vim-airline/vim-airline)
+To use powerline theme, you must first have installed [vim-airline](https://github.com/vim-airline/vim-airline) and [vim-airline-theme](https://github.com/vim-airline/vim-airline-themes).
 
-Then clone the repo and copy ```powerline.vim``` in ```~/.vim/plugged/vim-airline-themes/autoload/airline/themes/```
+Then clone the repo and copy ```powerline.vim``` in ```~/.vim/plugged/vim-airline-themes/autoload/airline/themes/```.
 ```shell script
 $ cp powerline.vim ~/.vim/plugged/vim-airline-themes/autoload/airline/themes/
 ```
 
-Finally add these commands in the ```~/.vimrc```
+Finally add these commands in the ```~/.vimrc```.
 ```vim
+" installation of plugins with vim-plug
 call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'vim-airline/vim-airline'
 call plug#end()
 
+" to disable timeout with esc key
 set ttimeout ttimeoutlen=50
 
+" add powerline theme
 let g:airline_theme='powerline'
 let g:show_error = 0
 let g:modification_color = 0
