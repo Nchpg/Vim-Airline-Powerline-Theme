@@ -24,9 +24,11 @@ let g:airline_theme='powerline'
 let g:show_error = 0
 let g:modification_color = 0
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
+set clipboard=unnamedplus
 
-" tab manager
+"tab manager
 nmap <S-left> :tabprev<CR>
 nmap <S-right> :tabnext<CR>
 nmap <S-N> :tab new<CR>
